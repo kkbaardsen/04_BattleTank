@@ -1,7 +1,7 @@
 // 13th_Panic Copyright 2017
 
 #include "TankPlayerController.h"
-#include "BattleTank.h"
+#include "Tank.h"
 
 // Called when the game starts or when spawned
 void ATankPlayerController::BeginPlay()

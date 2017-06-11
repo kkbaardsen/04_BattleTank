@@ -1,7 +1,7 @@
 // 13th_Panic Copyright 2017
 
 #include "TankAIController.h"
-#include "BattleTank.h"
+#include "Tank.h"
 
 void ATankAIController::BeginPlay()
 {
