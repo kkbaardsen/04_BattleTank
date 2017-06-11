@@ -3,6 +3,5 @@ An open-world head-to-head tank fight with simple AI, terrain, and advanced cont
 Made following Udemy Course : "Unreal Engine Developer Course - Learn C++ & Make Games"
 This is Section 3 of the course.
 
-DEAD IN THE WATER.
-*UNABLE TO OPEN PROJECT. 
-*UNABLE TO RECOMPILE AFTER CLONE FROM GITHUB.
+Update 1:DEAD IN THE WATER.
+Update 2:Fixed project opening error by reinstalling Visual Studio 2017
