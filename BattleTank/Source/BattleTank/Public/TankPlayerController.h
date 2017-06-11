@@ -20,9 +20,15 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+private:
 	ATank * GetControlledTank() const;
 	void AimTowardsCrosshair();
 
-private:
+	UPROPERTY(EditAnywhere)
+	float CrossHairXLocation = 0.5f;
+
+	UPROPERTY(EditAnywhere)
+	float CrossHairYLocation = 0.33333f;
+
 	bool GetSightRayHitLocation(FVector& HitLocation) const;
 };
