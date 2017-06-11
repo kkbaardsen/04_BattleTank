@@ -2,7 +2,7 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
+#include "Engine.h"
 #include "GameFramework/GameModeBase.h"
 #include "BattleTankGameModeBase.generated.h"
 
