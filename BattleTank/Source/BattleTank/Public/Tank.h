@@ -31,6 +31,10 @@ public:
 
 	void AimAt(FVector HitLocation);
 	
+private:
 	UFUNCTION(BlueprintCallable, Category = Setup)
 	void SetBarrelReference(UStaticMeshComponent* BarrelToSet);
+
+	UPROPERTY(EditAnywhere, Category = Firing)
+	float LaunchSpeed = 100000.f; //TODO test sensible default projectile velocity
 };
