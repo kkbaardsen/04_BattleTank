@@ -7,9 +7,6 @@
 #include "AIController.h"
 #include "TankAIController.generated.h"
 
-/**
- * 
- */
 UCLASS()
 class BATTLETANK_API ATankAIController : public AAIController
 {
@@ -18,6 +15,8 @@ class BATTLETANK_API ATankAIController : public AAIController
 public:
 	virtual void BeginPlay() override;
 
-	ATank * GetControlledTank() const;
+private:
+	ATank* GetControlledTank() const;
+	ATank* GetPlayerTank() const;
 
 };
