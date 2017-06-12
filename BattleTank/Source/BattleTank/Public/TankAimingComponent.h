@@ -2,7 +2,6 @@
 
 #pragma once
 
-#include "Engine.h"
 #include "Components/ActorComponent.h"
 #include "TankAimingComponent.generated.h"
 

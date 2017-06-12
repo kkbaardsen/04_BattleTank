@@ -17,7 +17,7 @@ class BATTLETANK_API ATank : public APawn
 	GENERATED_BODY()
 
 protected:
-	virtual void BeginPlay() override;
+	void BeginPlay() override;
 	UTankAimingComponent* TankAimingComponent = nullptr;
 
 public:	
@@ -35,7 +35,7 @@ public:
 private:
 	ATank();
 
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+	void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	UPROPERTY(EditDefaultsOnly, Category = SetUpFiring)
 	float LaunchSpeed = 4000;

@@ -2,9 +2,11 @@
 
 #pragma once
 
-#include "Engine.h"
 #include "GameFramework/Actor.h"
 #include "Projectile.generated.h"
+
+//forward declaration
+class UProjectileMovementComponent;
 
 UCLASS()
 class BATTLETANK_API AProjectile : public AActor
@@ -15,12 +17,12 @@ public:
 	AProjectile();
 
 protected:
-	virtual void BeginPlay() override;
+	void BeginPlay() override;
 
 public:	
-	virtual void Tick(float DeltaTime) override;
+	void Tick(float DeltaTime) override;
 
-	void LaunchProjectile(float Speed);
+	void LaunchProjectile(float Speed) const;
 		
 private:
 	UProjectileMovementComponent* ProjectileMovement = nullptr;

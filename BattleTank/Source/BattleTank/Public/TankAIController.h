@@ -14,9 +14,9 @@ class BATTLETANK_API ATankAIController : public AAIController
 	GENERATED_BODY()
 	
 protected:
-	virtual void BeginPlay() override;
+	void BeginPlay() override;
 
 private:
-	virtual void Tick(float DeltaTime) override;
+	void Tick(float DeltaTime) override;
 
 };
