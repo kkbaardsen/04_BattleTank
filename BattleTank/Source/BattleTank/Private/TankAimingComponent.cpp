@@ -28,7 +28,7 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 		0,
 		ESuggestProjVelocityTraceOption::DoNotTrace
 	);
-	if(bHaveAimSolution && OutLaunchVelocity.Z > 0) //TODO FIX Z > 0 for aiming at the sky
+	if(bHaveAimSolution && OutLaunchVelocity.Z > -10) //TODO FIX Z > 0 for aiming at the sky
 	{
 		auto AimDirection = OutLaunchVelocity.GetSafeNormal();
 		MoveBarrelTowards(AimDirection);
