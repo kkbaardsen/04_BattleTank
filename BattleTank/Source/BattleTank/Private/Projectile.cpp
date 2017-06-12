@@ -25,8 +25,9 @@ void AProjectile::Tick(float DeltaTime)
 //used in fire method to launch projectile
 void AProjectile::LaunchProjectile(float Speed) const
 {
-	auto Time = GetWorld()->GetTimeSeconds();
-	UE_LOG(LogTemp, Warning, TEXT("%f: Has Fired at %f"), Time, Speed); //TODO remove Output Log
+	//TODO LOG WARNING
+	//auto Time = GetWorld()->GetTimeSeconds();
+	//UE_LOG(LogTemp, Warning, TEXT("%f: Has Fired at %f"), Time, Speed); //TODO remove Output Log
 	ProjectileMovement->SetVelocityInLocalSpace(FVector::ForwardVector * Speed);
 	ProjectileMovement->Activate();
 }
