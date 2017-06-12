@@ -5,6 +5,9 @@
 #include "Components/StaticMeshComponent.h"
 #include "TankTurret.generated.h"
 
+/**
+* TankTurret defines rotation of the Turret within parameters.
+*/
 UCLASS(meta = (BlueprintSpawnableComponent))
 class BATTLETANK_API UTankTurret : public UStaticMeshComponent
 {

@@ -9,6 +9,9 @@
 class UTankBarrel; 
 class UTankTurret;
 
+/**
+* TankAimingComponent sets up the movement for the barrel and turret for firing sequence.
+*/
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class BATTLETANK_API UTankAimingComponent : public UActorComponent
 {

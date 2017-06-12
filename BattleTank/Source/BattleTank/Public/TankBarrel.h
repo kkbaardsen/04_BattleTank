@@ -5,6 +5,9 @@
 #include "Components/StaticMeshComponent.h"
 #include "TankBarrel.generated.h"
 
+/**
+* TankBarrel defines the minimum, maximum and firing pitch speed as well as moving within those parameters.
+*/
 UCLASS(meta = (BlueprintSpawnableComponent))
 class BATTLETANK_API UTankBarrel : public UStaticMeshComponent
 {
