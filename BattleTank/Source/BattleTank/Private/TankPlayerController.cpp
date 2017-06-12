@@ -4,35 +4,25 @@
 #include "Tank.h"
 #include "BattleTank.h"
 
-// Called when the game starts or when spawned
 void ATankPlayerController::BeginPlay()
 {
 	Super::BeginPlay();
 
-	auto ControlledTank = GetControlledTank();
-	if (!ControlledTank)
-	{
-		UE_LOG(LogTemp, Warning, TEXT("PlayerController not possesing Tank"));
-	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("PlayerController possessing: %s"), *(ControlledTank->GetName()));
-	}
 }
 
-// Called every frame
 void ATankPlayerController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	AimTowardsCrosshair();
 }
 	
-
+//gets player controlled tank TODO Possible defactor??
 ATank* ATankPlayerController::GetControlledTank() const
 {
 	return Cast<ATank>(GetPawn());	
 }
 
+//controls the player controlled tank to aim at HitLocation
 void ATankPlayerController::AimTowardsCrosshair()
 {
 	if (!GetControlledTank()) { return; }
@@ -64,6 +54,7 @@ bool ATankPlayerController::GetSightRayHitLocation(FVector& HitLocation) const
 	return true;
 }
 
+//gets LookDirection using screen location of UI
 bool ATankPlayerController::GetLookDirection(FVector2D ScreenLocation, FVector& LookDirection) const
 {
 	FVector CameraWorldLocation; //to be discarded
@@ -76,6 +67,7 @@ bool ATankPlayerController::GetLookDirection(FVector2D ScreenLocation, FVector& 
 	);
 }
 
+//gets the vector of HitLocation
 bool ATankPlayerController::GetLookVectorHitLocation(FVector LookDirection, FVector& HitLocation) const
 {
 	FHitResult HitResult;

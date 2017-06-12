@@ -23,6 +23,7 @@ private:
 		
 	void AimTowardsCrosshair();
 
+	//Crosshair locations corresponding to UI TODO link to UI
 	UPROPERTY(EditAnywhere)
 	float CrossHairXLocation = 0.5;
 

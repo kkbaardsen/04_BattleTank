@@ -3,7 +3,7 @@
 #include "TankTurret.h"
 #include "BattleTank.h"
 
-void UTankTurret::Rotate(float RelativeSpeed)
+void UTankTurret::Rotate(float RelativeSpeed) //TODO Fix 360 degree rotation
 {
 	RelativeSpeed = FMath::Clamp<float>(RelativeSpeed, -1, +1);
 	auto RotationChange = RelativeSpeed * MaxDegreesPerSecond * GetWorld()->DeltaTimeSeconds;

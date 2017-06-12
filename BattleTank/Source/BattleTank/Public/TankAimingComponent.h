@@ -20,10 +20,12 @@ public:
 
 	void AimAt(FVector HitLocation, float LaunchSpeed);
 
+	//sets references for Blueprint use
 	void SetBarrelReference(UTankBarrel* BarrelToSet);
 	void SetTurretReference(UTankTurret* TurretToSet);
 
 private:
+	//componets for aiming and firing
 	UTankBarrel* Barrel = nullptr;
 	UTankTurret* Turret = nullptr;
 
