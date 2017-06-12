@@ -2,6 +2,7 @@
 
 #include "TankPlayerController.h"
 #include "Tank.h"
+#include "BattleTank.h"
 
 // Called when the game starts or when spawned
 void ATankPlayerController::BeginPlay()
@@ -50,7 +51,7 @@ bool ATankPlayerController::GetSightRayHitLocation(FVector& HitLocation) const
 	//find the crosshair position
 	int32 ViewportSizeX, ViewportSizeY;
 	GetViewportSize(ViewportSizeX, ViewportSizeY);
-	auto ScreenLocation = FVector2D(ViewportSizeX*CrossHairXLocation, ViewportSizeY*CrossHairYLocation);
+	auto ScreenLocation = FVector2D(ViewportSizeX * CrossHairXLocation, ViewportSizeY * CrossHairYLocation);
 	
 	//"de-project" the screen position of the crosshair to a world direction
 	FVector LookDirection;
