@@ -26,10 +26,10 @@ protected:
 	UTankMovementComponent* TankMovementComponent = nullptr;
 
 public:	
-	UFUNCTION(BlueprintCallable, Category = Setup)
+	UFUNCTION(BlueprintCallable, Category = "Setup")
 	void SetBarrelReference(UTankBarrel* BarrelToSet);
 	
-	UFUNCTION(BlueprintCallable, Category = Setup)
+	UFUNCTION(BlueprintCallable, Category = "Setup")
 	void SetTurretReference(UTankTurret* TurretToSet) const;
 
 	UFUNCTION(BlueprintCallable)
@@ -42,13 +42,13 @@ private:
 
 	void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-	UPROPERTY(EditDefaultsOnly, Category = SetUpFiring)
+	UPROPERTY(EditDefaultsOnly, Category = "Setup Firing")
 	float LaunchSpeed = 4000;
 
 	UPROPERTY(EditDefaultsOnly, Category = Setup)
 	TSubclassOf<AProjectile> ProjectileBlueprint;
 
-	UPROPERTY(EditDefaultsOnly, Category = SetUpFiring)
+	UPROPERTY(EditDefaultsOnly, Category = "Setup Firing")
 	float ReloadTimeInSeconds = 3;
 
 	UTankBarrel* Barrel = nullptr;

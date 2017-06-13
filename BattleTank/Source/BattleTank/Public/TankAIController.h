@@ -20,7 +20,7 @@ private:
 	void Tick(float DeltaTime) override;
 
 	//How close can the AI can get to the player before firing
-	UPROPERTY(EditDefaultsOnly, Category = Setup)
+	UPROPERTY(EditDefaultsOnly, Category = "Setup")
 	float AcceptanceRadius = 3000;
 
 };
