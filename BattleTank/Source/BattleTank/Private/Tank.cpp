@@ -12,7 +12,6 @@ ATank::ATank()
 	PrimaryActorTick.bCanEverTick = false;
 	//adds projectile movement commponent to be used in unreal
 	TankAimingComponent = CreateDefaultSubobject<UTankAimingComponent>(FName("Aiming Component"));
-	TankMovementComponent = CreateDefaultSubobject<UTankMovementComponent>(FName("Movement Component"));
 }
 
 void ATank::BeginPlay()
