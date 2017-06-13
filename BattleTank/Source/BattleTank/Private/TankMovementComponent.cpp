@@ -13,12 +13,18 @@ void UTankMovementComponent::Initialise(UTankTrack* LeftTrackToSet, UTankTrack* 
 void UTankMovementComponent::RequestDirectMove(const FVector& MoveVelocity, bool bForceMaxSpeed)
 {
 	//No Need to call Super as we're replacing the functionality
-	auto TankName = GetOwner()->GetName();
-	auto MoveVelocityString = MoveVelocity.ToString();
-	UE_LOG(LogTemp, Warning, TEXT("%s vectoring to %s"), *TankName, *MoveVelocityString);
+	auto TankForward = GetOwner()->GetActorForwardVector().GetSafeNormal();
+	auto AIForwardIntention = MoveVelocity.GetSafeNormal();
+	auto ForwardThrow = FVector::DotProduct(TankForward, AIForwardIntention);
+	
+	IntendMoveForward(ForwardThrow);
+
+	//TODO Remove UE Log
+	//auto TankName = GetOwner()->GetName();
+	//UE_LOG(LogTemp, Warning, TEXT("%s vectoring to %s"), *TankName, *AIForwardIntention.ToString());
 }
 
-
+//AI uses this
 void UTankMovementComponent::IntendMoveForward(float Throw) const
 {
 	if (!LeftTrack || !RightTrack) { return; }
@@ -26,6 +32,7 @@ void UTankMovementComponent::IntendMoveForward(float Throw) const
 	RightTrack->SetThrottle(Throw);
 }
 
+//AI uses this
 void UTankMovementComponent::IntendTurnRight(float Throw) const
 {
 	if (!LeftTrack || !RightTrack) { return; }
