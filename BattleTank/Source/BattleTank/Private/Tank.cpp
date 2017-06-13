@@ -2,6 +2,7 @@
 
 #include "Tank.h"
 #include "TankAimingComponent.h"
+#include "TankMovementComponent.h"
 #include "Projectile.h"
 #include "TankBarrel.h"
 #include "BattleTank.h"
@@ -11,6 +12,7 @@ ATank::ATank()
 	PrimaryActorTick.bCanEverTick = false;
 	//adds projectile movement commponent to be used in unreal
 	TankAimingComponent = CreateDefaultSubobject<UTankAimingComponent>(FName("Aiming Component"));
+	TankMovementComponent = CreateDefaultSubobject<UTankMovementComponent>(FName("Movement Component"));
 }
 
 void ATank::BeginPlay()
@@ -25,7 +27,7 @@ void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 }
 
 //uses the Aims at HitLocation
-void ATank::AimAt(FVector HitLocation)
+void ATank::AimAt(FVector HitLocation) const
 {
 	TankAimingComponent->AimAt(HitLocation, LaunchSpeed);	
 }
@@ -38,7 +40,7 @@ void ATank::SetBarrelReference(UTankBarrel* BarrelToSet)
 }
 
 //sets the turret reference to be used in Blueprint
-void ATank::SetTurretReference(UTankTurret* TurretToSet)
+void ATank::SetTurretReference(UTankTurret* TurretToSet) const
 {
 	TankAimingComponent->SetTurretReference(TurretToSet);
 }
