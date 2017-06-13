@@ -16,9 +16,10 @@ class BATTLETANK_API ATankPlayerController : public APlayerController
 protected:
 	void BeginPlay() override;
 
-private:
+	UFUNCTION(BlueprintCallable, Category = "Setup")
 	ATank * GetControlledTank() const;
 
+private:
 	void Tick(float DeltaTime) override;
 		
 	void AimTowardsCrosshair();
