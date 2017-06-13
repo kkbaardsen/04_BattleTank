@@ -43,6 +43,6 @@ private:
 	//componets for aiming and firing
 	UTankBarrel* Barrel = nullptr;
 	UTankTurret* Turret = nullptr;
-	
+
 	void MoveBarrelTowards(FVector AimDirection);
 };
