@@ -2,7 +2,6 @@
 
 #include "TankMovementComponent.h"
 #include "TankTrack.h"
-#include "BattleTank.h"
 
 void UTankMovementComponent::Initialise(UTankTrack* LeftTrackToSet, UTankTrack* RightTrackToSet)
 {
@@ -13,11 +12,28 @@ void UTankMovementComponent::Initialise(UTankTrack* LeftTrackToSet, UTankTrack* 
 
 void UTankMovementComponent::IntendMoveForward(float Throw) const
 {
-	auto Time = GetWorld()->GetTimeSeconds();
-	UE_LOG(LogTemp, Warning, TEXT("%f:Intend move FORWARD: %f"),Time, Throw);
-
+	if (!LeftTrack || !RightTrack) { return; }
 	LeftTrack->SetThrottle(Throw);
 	RightTrack->SetThrottle(Throw);
+}
 
-	//TODO prevent excess throttle when using previous throttle with new throttle
+void UTankMovementComponent::IntendTurnRight(float Throw) const
+{
+	if (!LeftTrack || !RightTrack) { return; }
+	LeftTrack->SetThrottle(-Throw);
+	RightTrack->SetThrottle(Throw);
+}
+
+void UTankMovementComponent::IntendTurnLeft(float Throw) const
+{
+	if (!LeftTrack || !RightTrack) { return; }
+	LeftTrack->SetThrottle(Throw);
+	RightTrack->SetThrottle(-Throw);
+}
+
+void UTankMovementComponent::IntendMoveBackward(float Throw) const
+{
+	if (!LeftTrack || !RightTrack) { return; }
+	LeftTrack->SetThrottle(-Throw);
+	RightTrack->SetThrottle(-Throw);
 }
