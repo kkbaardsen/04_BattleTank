@@ -37,11 +37,15 @@ public:
 	void Fire();
 
 protected:
+	void BeginPlay() override;
+
 	UPROPERTY(BlueprintReadOnly, Category = "State")
-	EFiringState FiringState = EFiringState::Aiming;
+	EFiringState FiringState = EFiringState::Reloading;
 
 private:
 	UTankAimingComponent();
+
+	void TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction *ThisTickFunction) override;
 
 	//componets for aiming and firing
 	UTankBarrel* Barrel = nullptr;
