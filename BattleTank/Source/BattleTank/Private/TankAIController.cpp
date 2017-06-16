@@ -20,7 +20,16 @@ void ATankAIController::Tick(float DeltaTime)
 	if (PlayerTank)
 	{
 		//Move Towards the player 
-		MoveToActor(PlayerTank, AcceptanceRadius);//TODO acceptance radius
+		MoveToActor
+		(
+			PlayerTank, 
+			AcceptanceRadius,
+			true,
+			true,
+			false,
+			TSubclassOf<UNavigationQueryFilter>(GetDefaultNavigationFilterClass()),
+			true
+		);//TODO acceptance radius
 
 		//aim towards the player
 		ControlledTank->AimAt(PlayerTank->GetActorLocation());
