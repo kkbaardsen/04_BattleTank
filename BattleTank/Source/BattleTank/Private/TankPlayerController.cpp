@@ -1,13 +1,22 @@
 // 13th_Panic Copyright 2017
 
 #include "TankPlayerController.h"
+#include "TankAimingComponent.h"
 #include "Tank.h"
 #include "BattleTank.h"
 
 void ATankPlayerController::BeginPlay()
 {
 	Super::BeginPlay();
-
+	auto AimingComponent = GetControlledTank()->FindComponentByClass<UTankAimingComponent>();
+	if(AimingComponent)
+	{
+		FoundAimingComponent(AimingComponent);
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Player controller can't find aiming component at BeginPlay()"));
+	}
 }
 
 void ATankPlayerController::Tick(float DeltaTime)
@@ -23,7 +32,7 @@ ATank* ATankPlayerController::GetControlledTank() const
 }
 
 //controls the player controlled tank to aim at HitLocation
-void ATankPlayerController::AimTowardsCrosshair()
+void ATankPlayerController::AimTowardsCrosshair() const
 {
 	if (!GetControlledTank()) { return; }
 
