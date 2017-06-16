@@ -21,6 +21,6 @@ private:
 
 	//How close can the AI can get to the player before firing
 	UPROPERTY(EditDefaultsOnly, Category = "Setup")
-	float AcceptanceRadius = 3000;
+	float AcceptanceRadius = 10000;
 
 };
