@@ -2,7 +2,6 @@
 
 #include "Tank.h"
 #include "TankAimingComponent.h"
-#include "TankMovementComponent.h"
 #include "Projectile.h"
 #include "TankBarrel.h"
 #include "BattleTank.h"
@@ -10,29 +9,27 @@
 ATank::ATank()
 {
 	PrimaryActorTick.bCanEverTick = false;
-	//TODO Remove UE_LOG
-	auto TankName = GetName();
-	UE_LOG(LogTemp, Warning, TEXT("1234: %s Tank constructed"), *TankName);
+	
 }
 
 //uses the Aims at HitLocation
 void ATank::AimAt(FVector HitLocation) const
 {
 	if(!ensure(TankAimingComponent)){return;}
-	TankAimingComponent->AimAt(HitLocation, LaunchSpeed);	
+	TankAimingComponent->AimAt(HitLocation, LaunchSpeed);
 }
 
 void ATank::BeginPlay()
 {
 	Super::BeginPlay();
-	//TODO Remove UE_LOG
-	auto TankName = GetName();
-	UE_LOG(LogTemp, Warning, TEXT("1234: %s Tank BeginPlay"), *TankName);
+	
+	TankAimingComponent = FindComponentByClass<UTankAimingComponent>();
 }
 
 //fires projectile
 void ATank::Fire()
 {
+	//TODO
 	if(!ensure(Barrel)) { return; }
 	auto isReloaded = (FPlatformTime::Seconds() - LastFireTime) > ReloadTimeInSeconds;
 
