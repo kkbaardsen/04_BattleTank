@@ -10,38 +10,12 @@
 ATank::ATank()
 {
 	PrimaryActorTick.bCanEverTick = false;
-	//adds projectile movement commponent to be used in unreal
-	TankAimingComponent = CreateDefaultSubobject<UTankAimingComponent>(FName("Aiming Component"));
-}
-
-void ATank::BeginPlay()
-{
-	Super::BeginPlay();
-}
-
-// Called to bind functionality to input
-void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
-{
-	Super::SetupPlayerInputComponent(PlayerInputComponent);
 }
 
 //uses the Aims at HitLocation
 void ATank::AimAt(FVector HitLocation) const
 {
 	TankAimingComponent->AimAt(HitLocation, LaunchSpeed);	
-}
-
-//sets the barrel reference to be used in Blueprint
-void ATank::SetBarrelReference(UTankBarrel* BarrelToSet)
-{
-	TankAimingComponent->SetBarrelReference(BarrelToSet);
-	Barrel = BarrelToSet;
-}
-
-//sets the turret reference to be used in Blueprint
-void ATank::SetTurretReference(UTankTurret* TurretToSet) const
-{
-	TankAimingComponent->SetTurretReference(TurretToSet);
 }
 
 //fires projectile

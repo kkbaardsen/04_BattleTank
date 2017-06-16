@@ -18,21 +18,13 @@ class BATTLETANK_API ATank : public APawn
 	GENERATED_BODY()
 
 protected:
-	void BeginPlay() override;
-	
 	UPROPERTY(BlueprintReadOnly)
 	UTankAimingComponent* TankAimingComponent = nullptr;
 
 	UPROPERTY(BlueprintReadOnly)
 	UTankMovementComponent* TankMovementComponent = nullptr;
 
-public:	
-	UFUNCTION(BlueprintCallable, Category = "Setup")
-	void SetBarrelReference(UTankBarrel* BarrelToSet);
-	
-	UFUNCTION(BlueprintCallable, Category = "Setup")
-	void SetTurretReference(UTankTurret* TurretToSet) const;
-
+public:
 	UFUNCTION(BlueprintCallable)
 	void Fire();
 
@@ -40,8 +32,6 @@ public:
 	
 private:
 	ATank();
-
-	void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Setup Firing")
 	float LaunchSpeed = 4000;
@@ -52,7 +42,7 @@ private:
 	UPROPERTY(EditDefaultsOnly, Category = "Setup Firing")
 	float ReloadTimeInSeconds = 3;
 
-	UTankBarrel* Barrel = nullptr;
+	UTankBarrel* Barrel = nullptr; //TODO REMOVE
 
 	double LastFireTime = 0;
 };
