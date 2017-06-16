@@ -10,6 +10,9 @@
 ATank::ATank()
 {
 	PrimaryActorTick.bCanEverTick = false;
+	//TODO Remove UE_LOG
+	//auto TankName = GetName();
+	//UE_LOG(LogTemp, Warning, TEXT("1234: %s Tank constructed"), *TankName);
 }
 
 //uses the Aims at HitLocation
@@ -17,6 +20,11 @@ void ATank::AimAt(FVector HitLocation) const
 {
 	if(!TankAimingComponent){return;}
 	TankAimingComponent->AimAt(HitLocation, LaunchSpeed);	
+}
+
+void ATank::BeginPlay()
+{
+	Super::BeginPlay();
 }
 
 //fires projectile
