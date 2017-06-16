@@ -3,8 +3,7 @@
 #include "TankTrack.h"
 #include "BattleTank.h"
 
-
-void UTankTrack::SetThrottle(float Throttle)
+void UTankTrack::SetThrottle(float Throttle) const
 {
 	auto ForceApplied = GetForwardVector() * Throttle * TrackMaxDrivingForce;
 	auto ForceLocation = GetComponentLocation();

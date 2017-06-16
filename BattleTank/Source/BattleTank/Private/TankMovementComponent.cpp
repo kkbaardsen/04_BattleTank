@@ -5,7 +5,7 @@
 
 void UTankMovementComponent::Initialise(UTankTrack* LeftTrackToSet, UTankTrack* RightTrackToSet)
 {
-	if (!LeftTrackToSet || !RightTrackToSet) { return; }
+	if (!ensure(LeftTrackToSet && RightTrackToSet)) { return; }
 	LeftTrack = LeftTrackToSet;
 	RightTrack = RightTrackToSet;
 }
@@ -26,7 +26,7 @@ void UTankMovementComponent::RequestDirectMove(const FVector& MoveVelocity, bool
 //AI uses this to move forward and backwards
 void UTankMovementComponent::IntendMoveForward(float Throw) const
 {
-	if (!LeftTrack || !RightTrack) { return; }
+	if (!ensure(LeftTrack && RightTrack)) { return; }
 	LeftTrack->SetThrottle(Throw);
 	RightTrack->SetThrottle(Throw);
 }
@@ -34,21 +34,7 @@ void UTankMovementComponent::IntendMoveForward(float Throw) const
 //AI uses this to turn left and right
 void UTankMovementComponent::IntendTurnRight(float Throw) const
 {
-	if (!LeftTrack || !RightTrack) { return; }
+	if (!ensure(LeftTrack && RightTrack)) { return; }
 	LeftTrack->SetThrottle(-Throw);
 	RightTrack->SetThrottle(Throw);
-}
-
-void UTankMovementComponent::IntendTurnLeft(float Throw) const
-{
-	if (!LeftTrack || !RightTrack) { return; }
-	LeftTrack->SetThrottle(Throw);
-	RightTrack->SetThrottle(-Throw);
-}
-
-void UTankMovementComponent::IntendMoveBackward(float Throw) const
-{
-	if (!LeftTrack || !RightTrack) { return; }
-	LeftTrack->SetThrottle(-Throw);
-	RightTrack->SetThrottle(-Throw);
 }

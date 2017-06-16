@@ -9,7 +9,7 @@ void ATankPlayerController::BeginPlay()
 {
 	Super::BeginPlay();
 	auto AimingComponent = GetControlledTank()->FindComponentByClass<UTankAimingComponent>();
-	if(AimingComponent)
+	if(ensure(AimingComponent))
 	{
 		FoundAimingComponent(AimingComponent);
 	}
@@ -34,7 +34,7 @@ ATank* ATankPlayerController::GetControlledTank() const
 //controls the player controlled tank to aim at HitLocation
 void ATankPlayerController::AimTowardsCrosshair() const
 {
-	if (!GetControlledTank()) { return; }
+	if (!ensure(GetControlledTank())) { return; }
 
 	FVector HitLocation; //out parameter
 	if (GetSightRayHitLocation(HitLocation)) //going along line trace

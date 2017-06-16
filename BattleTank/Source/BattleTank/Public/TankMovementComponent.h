@@ -25,13 +25,7 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Input")
 	void IntendTurnRight(float Throw) const;
-
-	UFUNCTION(BlueprintCallable, Category = "Input")
-	void IntendTurnLeft(float Throw) const;
-
-	UFUNCTION(BlueprintCallable, Category = "Input")
-	void IntendMoveBackward(float Throw) const;
-
+		
 private:
 	UTankTrack* LeftTrack = nullptr;
 	UTankTrack* RightTrack = nullptr;

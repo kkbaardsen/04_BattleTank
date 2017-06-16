@@ -18,7 +18,7 @@ ATank::ATank()
 //uses the Aims at HitLocation
 void ATank::AimAt(FVector HitLocation) const
 {
-	if(!TankAimingComponent){return;}
+	if(!ensure(TankAimingComponent)){return;}
 	TankAimingComponent->AimAt(HitLocation, LaunchSpeed);	
 }
 
@@ -27,20 +27,17 @@ void ATank::BeginPlay()
 	Super::BeginPlay();
 	//TODO Remove UE_LOG
 	auto TankName = GetName();
-	UE_LOG(LogTemp, Warning, TEXT("1234: %s Tank BeginPlayer"), *TankName);
+	UE_LOG(LogTemp, Warning, TEXT("1234: %s Tank BeginPlay"), *TankName);
 }
 
 //fires projectile
 void ATank::Fire()
 {
+	if(!ensure(Barrel)) { return; }
 	auto isReloaded = (FPlatformTime::Seconds() - LastFireTime) > ReloadTimeInSeconds;
 
-	if (Barrel && isReloaded)
+	if (isReloaded)
 	{
-		//TODO Remove commented log when barrel movement is fixed
-		//auto BarrelRotation = Barrel->GetComponentRotation().ToString();
-		//UE_LOG(LogTemp, Warning, TEXT("%s"), *BarrelRotation);
-		
 		//spawn a projectile at the socket location on the barrel
 		auto Projectile = GetWorld()->SpawnActor<AProjectile>
 			(
