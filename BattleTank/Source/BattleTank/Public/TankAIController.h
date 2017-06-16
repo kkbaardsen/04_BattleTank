@@ -6,8 +6,12 @@
 #include "TankAIController.generated.h"
 
 //forward declarations
-class ATank;
+class ATank; 
+class UTankAimingComponent;
 
+/*
+ * Responsible for helping the AI aim
+ */
 UCLASS()
 class BATTLETANK_API ATankAIController : public AAIController
 {
@@ -15,6 +19,9 @@ class BATTLETANK_API ATankAIController : public AAIController
 	
 protected:
 	void BeginPlay() override;
+	
+	UFUNCTION(BlueprintImplementableEvent, Category = "Setup")
+	void FoundAimingComponent(UTankAimingComponent* AimCompRef);
 
 private:
 	void Tick(float DeltaTime) override;

@@ -1,7 +1,6 @@
 // 13th_Panic Copyright 2017
 
 #include "Tank.h"
-#include "TankAimingComponent.h"
 #include "Projectile.h"
 #include "TankBarrel.h"
 #include "BattleTank.h"
@@ -12,18 +11,10 @@ ATank::ATank()
 	
 }
 
-//uses the Aims at HitLocation
-void ATank::AimAt(FVector HitLocation) const
-{
-	if(!ensure(TankAimingComponent)){return;}
-	TankAimingComponent->AimAt(HitLocation, LaunchSpeed);
-}
-
 void ATank::BeginPlay()
 {
 	Super::BeginPlay();
-	
-	TankAimingComponent = FindComponentByClass<UTankAimingComponent>();
+
 }
 
 //fires projectile
