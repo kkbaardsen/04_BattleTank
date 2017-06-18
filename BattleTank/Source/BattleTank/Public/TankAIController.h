@@ -11,7 +11,7 @@ class UTankAimingComponent;
 /*
  * Responsible for helping the AI aim
  */
-UCLASS()
+UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class BATTLETANK_API ATankAIController : public AAIController
 {
 	GENERATED_BODY()
@@ -27,6 +27,6 @@ private:
 
 	//How close can the AI can get to the player before firing
 	UPROPERTY(EditDefaultsOnly, Category = "Setup")
-	float AcceptanceRadius = 10000;
+	float AcceptanceRadius = 8000;
 
 };

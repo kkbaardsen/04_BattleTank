@@ -89,6 +89,10 @@ void UTankAimingComponent::Fire()
 	}
 }
 
+EFiringState UTankAimingComponent::GetFiringState() const
+{
+	return FiringState;
+}
 
 
 //moves barrel and turret towards AimDirection
