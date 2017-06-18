@@ -58,7 +58,7 @@ private:
 	FVector AimDirection = FVector(0);
 
 	UPROPERTY(EditDefaultsOnly, Category = "Setup Firing")
-	float LaunchSpeed = 5000;
+	float LaunchSpeed = 8000;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Setup Firing")
 	float ReloadTimeInSeconds = 3;
