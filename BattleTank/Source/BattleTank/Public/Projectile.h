@@ -40,6 +40,11 @@ private:
 	UPROPERTY(VisibleAnywhere, Category = "Particle System")
 	URadialForceComponent* ExplosionForce = nullptr;
 
+	UPROPERTY(EditDefaultsOnly, Category = "Setup")
+	float DestroyDelay = 5.f;
+
 	UFUNCTION()
 	void OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, FVector NormalImpulse, const FHitResult& Hit);
+	
+	void OnTimerExpire();
 };
