@@ -22,11 +22,15 @@ protected:
 	UFUNCTION(BlueprintImplementableEvent, Category = "Setup")
 	void FoundAimingComponent(UTankAimingComponent* AimCompRef);
 
-private:
-	void Tick(float DeltaTime) override;
-
 	//How close can the AI can get to the player before firing
 	UPROPERTY(EditDefaultsOnly, Category = "Setup")
 	float AcceptanceRadius = 8000;
 
+	UFUNCTION()
+	void OnPossessedTankDeath();
+
+private:
+	void Tick(float DeltaTime) override;
+
+	void SetPawn(APawn* InPawn) override;	
 };
