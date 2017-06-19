@@ -9,6 +9,7 @@
 class UProjectileMovementComponent;
 class UStaticMeshComponent;
 class UParticleSystemComponent;
+class URadialForceComponent;
 
 UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class BATTLETANK_API AProjectile : public AActor
@@ -36,6 +37,9 @@ private:
 	UPROPERTY(VisibleAnywhere, Category = "Particle System")
 	UParticleSystemComponent* ImpactBlast = nullptr;
 
+	UPROPERTY(VisibleAnywhere, Category = "Particle System")
+	URadialForceComponent* ExplosionForce = nullptr;
+
 	UFUNCTION()
-		void OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, FVector NormalImpulse, const FHitResult& Hit);
+	void OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, FVector NormalImpulse, const FHitResult& Hit);
 };
