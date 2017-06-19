@@ -67,12 +67,16 @@ private:
 	UPROPERTY(EditDefaultsOnly, Category = "Setup Firing")
 	float ReloadTimeInSeconds = 3;
 
-	UPROPERTY(EditDefaultsOnly, Category = Setup)
+	UPROPERTY(EditDefaultsOnly, Category = "Setup")
 	TSubclassOf<AProjectile> ProjectileBlueprint;
 
 	void MoveBarrelTowards(FVector AimDirection);
 
 	double LastFireTime = 0;
 
+	UPROPERTY(EditDefaultsOnly, Category = "Setup Firing")
 	int32 RoundsLeft = 3;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Setup Firing")
+	bool bHigharc = false;
 };

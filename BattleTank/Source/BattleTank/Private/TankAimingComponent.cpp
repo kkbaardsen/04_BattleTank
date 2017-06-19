@@ -62,7 +62,7 @@ void UTankAimingComponent::AimAt(FVector HitLocation)
 		StartLocation,
 		HitLocation,
 		LaunchSpeed,
-		false,
+		bHigharc,
 		0,
 		0,
 		ESuggestProjVelocityTraceOption::DoNotTrace
@@ -116,7 +116,7 @@ void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection)
 
 	Barrel->Elevate(DeltaRotator.Pitch);
 	//Always Yaw the shortway round
-	if (DeltaRotator.Yaw < 180)
+	if (FMath::Abs(DeltaRotator.Yaw) < 180)
 	{
 		Turret->Rotate(DeltaRotator.Yaw);
 	}
